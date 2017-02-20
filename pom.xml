@@ -16,12 +16,12 @@
 	<properties>
 		<unioncenter-core.version>1.1.1-RELEASE</unioncenter-core.version>
 		<unioncenter-web.version>1.1.1-RELEASE</unioncenter-web.version>
-		<springframework.version>3.0.5.RELEASE</springframework.version>
+		<springframework.version>3.2.4.RELEASE</springframework.version>
 		<cxf.version>2.4.2</cxf.version>
 		<hbase.version>0.94.17</hbase.version>
 		<hadoop.version>1.0.4</hadoop.version>
 		<org.aspectj.version>1.6.7</org.aspectj.version>
-		<org.mybatis.version>3.1.1</org.mybatis.version>
+		<org.mybatis.version>3.2.7</org.mybatis.version>
 		<mybatis.spring.version>1.1.1</mybatis.spring.version>
 		<org.apache.cxf.rt.version>2.7.11</org.apache.cxf.rt.version>
 		<junit.version>4.11</junit.version>
@@ -37,7 +37,7 @@
 		<org.codehaus.jackson.version>1.9.0</org.codehaus.jackson.version>
 		<xmemcached.version>1.4.3</xmemcached.version>
 		<net.sf.json.version>2.4</net.sf.json.version>
-		<mysql.connector.java.version>5.1.6</mysql.connector.java.version>
+		<mysql.connector.java.version>5.1.24</mysql.connector.java.version>
 		<jdbc.alibaba.version>1.0.19</jdbc.alibaba.version>
 	</properties>
 
@@ -81,6 +81,42 @@
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-jdbc</artifactId>
+				<version>${springframework.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-webmvc</artifactId>
+				<version>${springframework.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-aop</artifactId>
+				<version>${springframework.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context-support</artifactId>
+				<version>${springframework.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-core</artifactId>
+				<version>${springframework.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-web</artifactId>
+				<version>${springframework.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-oxm</artifactId>
 				<version>${springframework.version}</version>
 			</dependency>
 
@@ -231,6 +267,18 @@
 				<groupId>com.alibaba</groupId>
 				<artifactId>druid</artifactId>
 				<version>${jdbc.alibaba.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.codehaus.jackson</groupId>
+				<artifactId>jackson-mapper-asl</artifactId>
+				<version>1.9.13</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-databind</artifactId>
+				<version>2.7.5</version>
 			</dependency>
 			
 		</dependencies>
