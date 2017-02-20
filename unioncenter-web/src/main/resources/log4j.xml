@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<!--log files configuration -->
+	<appender name="logfile" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="${catalina.home}/logs/unioncenter-ws.log" />
+		<param name="ImmediateFlush" value="true" />
+		<param name="Threshold" value="info,debug"></param>
+		<param name="Append" value="true"></param>
+		<param name="MaxFileSize" value="100MB"></param>
+		<param name="MaxBackupIndex" value="5"></param>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-d{yyyy-MM-dd HH:mm:ss} [%t:%c:%L]-[%p] %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="boundmessage" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="${catalina.home}/logs/unioncenter-bound.log" />
+		<param name="ImmediateFlush" value="true" />
+		<param name="Threshold" value="info"></param>
+		<param name="Append" value="true"></param>
+		<param name="MaxFileSize" value="100MB"></param>
+		<param name="MaxBackupIndex" value="5"></param>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-d{yyyy-MM-dd HH:mm:ss} [%t:%c:%L]-[%p] %m%n" />
+		</layout>
+	</appender>
+	<!--stdout configuration -->
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-d{yyyy-MM-dd HH:mm:ss} [%t:%c:%L]-[%p] %m%n" />
+		</layout>
+	</appender>
+	<!-- logfile -->
+	<category name="org.mybatis.spring.SqlSessionUtils"
+		additivity="false">
+		<priority value="debug" />
+		<appender-ref ref="logfile" />
+	</category>
+
+	<category name="java.sql.Connection" additivity="false">
+		<priority value="debug" />
+		<appender-ref ref="console" />
+		<appender-ref ref="logfile" />
+	</category>
+	<category name="java.sql.Statement" additivity="false">
+		<priority value="debug" />
+		<appender-ref ref="console" />
+		<appender-ref ref="logfile" />
+	</category>
+	<category name="java.sql.PreparedStatement" additivity="false">
+		<priority value="debug" />
+		<appender-ref ref="console" />
+		<appender-ref ref="logfile" />
+	</category>
+	<category name="java.sql.CallableStatement" additivity="false">
+		<priority value="debug" />
+		<appender-ref ref="console" />
+		<appender-ref ref="logfile" />
+	</category>
+	<category name="org.apache.ibatis" additivity="false">
+		<priority value="debug" />
+		<appender-ref ref="console" />
+		<appender-ref ref="logfile" />
+	</category>
+	<!-- boundmessage -->
+	<category name="org.apache.cxf.interceptor.LoggingInInterceptor">
+		<priority value="info" />
+		<appender-ref ref="boundmessage" />
+	</category>
+	<category name="org.apache.cxf.interceptor.LoggingOutInterceptor">
+		<priority value="info" />
+		<appender-ref ref="boundmessage" />
+	</category>
+	<root>
+		<priority value="info" />
+		<appender-ref ref="console" />
+		<appender-ref ref="logfile" />
+	</root>
+
+</log4j:configuration>
