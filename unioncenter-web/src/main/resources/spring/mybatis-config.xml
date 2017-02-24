@@ -26,6 +26,8 @@
 	</settings>
 
 	<typeAliases>
+		<!-- member -->
+		<typeAlias type="com.zqs.pojo.member.MemberInfo" alias = "memberInfo"/>
 	</typeAliases>
 	
 	

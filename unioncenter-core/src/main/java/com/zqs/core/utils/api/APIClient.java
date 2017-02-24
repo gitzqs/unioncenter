@@ -1,4 +1,4 @@
-package api;
+package com.zqs.core.utils.api;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -31,9 +31,9 @@ import org.apache.http.protocol.HTTP;
  * To change this template use File | Settings | File Templates.
  */
 public class APIClient {
-	private static String appkey = "";
-	private static String appid  = "";
-	private static String domain = "";
+	private static String appkey = "111";
+	private static String appid  = "22";
+	private static String domain = "33";
 
 	public static void setAppkey(String value){
 		appkey = value;
@@ -48,7 +48,7 @@ public class APIClient {
 	}
 
 	/**
-	 * 此方法强调在客户端调用时应采用统一的封装类如WebClient去统一调用,方法注解参数等
+	 * 此方法强调在客户端调用时应采用统�?的封装类如WebClient去统�?调用,方法注解参数�?
 	 * @param url
 	 * @param parameter
 	 * @param responseClazz
@@ -109,7 +109,7 @@ public class APIClient {
     }
     
     /**
-     * 简易转换类
+     * �?易转换类
      * @param s
      * @return
      */
@@ -205,8 +205,18 @@ public class APIClient {
 	}
 	
 	public static void main(String args[]){
-		JSONObject o = new JSONObject();
-		String postStatus =doPostByJson("http://localhost:9080/unioncenter/services/rest/test/hi", o);
-		System.out.println(postStatus);
+//		JSONObject o = new JSONObject();
+//		o.put("mobileNumber", "18811012138");
+//		String postStatus =doPostByJson("http://localhost:9080/unioncenter/services/rest/memberInfo/loadAll", o);
+		Map<String,Object> map = new HashMap<String,Object>();
+		map.put("mobileNumber", "18811012138");
+		String postStatus;
+		try {
+			postStatus = callRest("http://localhost:9080/unioncenter/services/rest/memberInfo/loadAll",map,String.class);
+			System.out.println(postStatus);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 }

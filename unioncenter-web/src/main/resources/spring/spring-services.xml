@@ -22,10 +22,16 @@
 
     <bean id="testService" class="com.zqs.core.service.impl.DefaultTestServiceImpl"/>
     
+    <!-- member -->
+    <bean id="memberInfoService" class="com.zqs.core.service.member.impl.DefaultMemberServiceImpl"></bean>
+    
     <!--REST发布容器-->
     <jaxrs:server id="restServiceContainer" address="/rest">
         <jaxrs:serviceBeans>
             <ref bean="testService"/>
+            
+            <!-- member -->
+            <ref bean="memberInfoService"/>
         </jaxrs:serviceBeans>
         <jaxrs:extensionMappings>
             <entry key="json" value="application/json" />
