@@ -28,6 +28,9 @@
 	<typeAliases>
 		<!-- member -->
 		<typeAlias type="com.zqs.pojo.member.MemberInfo" alias = "memberInfo"/>
+		
+		<!-- user -->
+		<typeAlias type="com.zqs.pojo.user.User" alias = "user"/>
 	</typeAliases>
 	
 	

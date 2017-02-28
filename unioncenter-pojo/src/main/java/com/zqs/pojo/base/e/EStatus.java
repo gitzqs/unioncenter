@@ -1,15 +1,15 @@
 package com.zqs.pojo.base.e;
 /**
- * »ù´¡×´Ì¬
+ * åŸºç¡€çŠ¶æ€
  * 
  * @author qiushi.zhou  
- * @date 2017Äê2ÔÂ24ÈÕ ÉÏÎç9:46:32
+ * @date 2017å¹´2æœˆ28æ—¥ ä¸‹åˆ4:29:12
  */
 public interface EStatus {
 	
-	/** ÉúĞ§ */
+	/** ç”Ÿæ•ˆ */
 	int ACTIVE = 1;
 	
-	/** Ê§Ğ§ */
+	/** å¤±æ•ˆ */
 	int UN_ACTIVE = 0;
 }

@@ -1,12 +1,12 @@
-package com.zqs.core.service.member;
+package com.zqs.core.service.user;
 
 import java.util.Map;
 
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 
-@Path("/memberInfo")
-public interface IMemberService {
+@Path("/user")
+public interface IUserService {
 	
 	/**
 	 * 获取用户基本信息
@@ -16,5 +16,5 @@ public interface IMemberService {
 	 */
 	@POST
 	@Path("/loadAll")
-	String load(Map<String,Object> map);
+	String loadAll(Map<String,Object> map);
 }
