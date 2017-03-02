@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zqs.core.dao.other.IAppkeyMapper">
+	<resultMap id="appkeyMap" type="appkey" >
+		
+		<id column="ID" property="id" jdbcType="DECIMAL"/>
+		<result column="APPID" property="appid" jdbcType="VARCHAR"/>
+		<result column="APPKEY" property="appkey" jdbcType="VARCHAR"/>
+		<result column="STATUS" property="status" jdbcType="DECIMAL"/>
+	</resultMap>
+	
+	<sql id="base_column">
+		APPKEY
+	</sql>
+	
+	<select id="load" parameterType="String" resultMap="appkeyMap">
+		SELECT
+		<include refid="base_column"/>
+		FROM TB_APPKEY
+		WHERE APPID = #{id}
+			AND STATUS = 1
+	</select>
+	
+</mapper>

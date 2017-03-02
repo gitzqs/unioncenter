@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zqs.core.dao.other.IRecommendMapper">
+	<resultMap id="recommendMap" type="recommend" >
+		
+		<id column="ACT_ID" property="actId" jdbcType="DECIMAL"/>
+		<result column="NAME" property="name" jdbcType="VARCHAR"/>
+		<result column="TYPE" property="type" jdbcType="DECIMAL"/>
+		<result column="IMAGE" property="image" jdbcType="VARCHAR"/>
+		<result column="URL" property="url" jdbcType="VARCHAR"/>
+		
+		<result column="GOODS_ID" property="goodsId" jdbcType="DECIMAL"/>
+		<result column="DESCRIPTION" property="description" jdbcType="VARCHAR"/>
+		<result column="CREATOR_ID" property="creatorId" jdbcType="DECIMAL"/>
+		<result column="CREATED_TIME" property="createdTime" jdbcType="TIMESTAMP"/>
+		<result column="LAST_OPERATOR_ID" property="lastOperatorId" jdbcType="DECIMAL"/>
+		
+		<result column="LAST_OPERATED_TIME" property="lastOperatedTime" jdbcType="TIMESTAMP"/>
+		
+	</resultMap>
+	
+	<sql id="base_column">
+		IMAGE,URL,GOODS_ID
+	</sql>
+	
+	<select id="load" parameterType="int" resultMap="recommendMap">
+		SELECT
+		<include refid="base_column"/>
+		FROM TB_RECOMMEND
+		WHERE TYPE = #{id}
+	</select>
+	
+</mapper>

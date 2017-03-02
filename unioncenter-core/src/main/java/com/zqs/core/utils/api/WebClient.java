@@ -24,6 +24,10 @@ import org.slf4j.LoggerFactory;
 public class WebClient {
 	
 	private static Logger logger = LoggerFactory.getLogger(WebClient.class);
+	
+	private static final String APPID = "PC_STORE";
+	private static final String APPKEY = "edab16849b164f6c8284cbaf2052b26e";
+	
 	/**
 	 * 接口调用
 	 * 
@@ -33,7 +37,12 @@ public class WebClient {
 	public static String callRest(String url, Object parameter) {
         DefaultHttpClient httpClient = new DefaultHttpClient();
         HttpPost postRequest = new HttpPost(url);
-        JSONObject jsonObject = JSONObject.fromObject(parameter);
+        JSONObject jsonObject = new JSONObject();
+        if(parameter != null){
+        	jsonObject = JSONObject.fromObject(parameter);
+        }
+        jsonObject.put("appid", APPID);
+        jsonObject.put("appkey", APPKEY);
         String jsonResponseString = null;
         
 		try {
@@ -58,7 +67,7 @@ public class WebClient {
 	public static void main(String args[]){
 		Map<String,Object> map = new HashMap<String,Object>();
 		map.put("mobileNumber", "18811012138");
-		String postStatus = callRest("http://localhost:9080/unioncenter/services/rest/memberInfo/loadAll", map);
+		String postStatus = callRest("http://localhost:9080/unioncenter/services/rest/other/recommend", map);
 		System.out.println(postStatus);
 	}
 }

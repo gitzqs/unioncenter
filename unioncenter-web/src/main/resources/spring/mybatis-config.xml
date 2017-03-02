@@ -25,12 +25,18 @@
 		<setting name="defaultStatementTimeout" value="25000" />
 	</settings>
 
-	<typeAliases>
-		<!-- member -->
-		<typeAlias type="com.zqs.pojo.member.MemberInfo" alias = "memberInfo"/>
-		
+	<typeAliases>		
 		<!-- user -->
 		<typeAlias type="com.zqs.pojo.user.User" alias = "user"/>
+		
+		<!-- goods -->
+		<typeAlias type="com.zqs.pojo.goods.GoodsType" alias = "goodsType"/>
+		<typeAlias type="com.zqs.pojo.goods.Goods" alias = "goods"/>
+		<typeAlias type="com.zqs.pojo.goods.GoodsBrand" alias = "goodsBrand"/>
+		
+		<!-- other -->
+		<typeAlias type="com.zqs.pojo.other.Recommend" alias = "recommend"/>
+		<typeAlias type="com.zqs.pojo.other.Appkey" alias = "appkey"/>
 	</typeAliases>
 	
 	

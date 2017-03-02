@@ -23,11 +23,23 @@
     <!-- user -->
     <bean id="userService" class="com.zqs.core.service.user.impl.DefaultUserServiceImpl"></bean>
     
+    <!-- goods -->
+    <bean id="goodsService" class="com.zqs.core.service.goods.impl.DefaultGoodsServiceImpl"></bean>
+    
+    <!-- other -->
+    <bean id="otherService" class="com.zqs.core.service.other.impl.DefultOtherServiceImpl"></bean>
+    
     <!--REST发布容器-->
     <jaxrs:server id="restServiceContainer" address="/rest">
         <jaxrs:serviceBeans>
             <!-- user -->
             <ref bean="userService"/>
+            
+            <!-- goods -->
+            <ref bean="goodsService"/>
+            
+            <!-- other -->
+            <ref bean="otherService"/>
         </jaxrs:serviceBeans>
         <jaxrs:extensionMappings>
             <entry key="json" value="application/json" />
@@ -35,11 +47,11 @@
         <jaxrs:providers>
             <bean class="org.codehaus.jackson.jaxrs.JacksonJsonProvider"/>
         </jaxrs:providers>
-       <!--  <jaxrs:inInterceptors>
+       <jaxrs:inInterceptors>
             <ref bean="gatewayInInterceptor"/>
         </jaxrs:inInterceptors>
-        <jaxrs:outInterceptors>
+        <!-- <jaxrs:outInterceptors>
             <ref bean="gatewayOutInterceptor"/>
-        </jaxrs:outInterceptors> -->
+        </jaxrs:outInterceptors>  -->
     </jaxrs:server>
 </beans>
