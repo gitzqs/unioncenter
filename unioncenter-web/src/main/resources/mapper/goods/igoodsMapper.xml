@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zqs.core.dao.goods.IGoodsMapper">
+	<resultMap id="goodsMap" type="goods" >
+		
+		<id column="GOODS_ID" property="goodsId" jdbcType="DECIMAL"/>
+		<result column="CODE" property="code" jdbcType="VARCHAR"/>
+		<result column="GOODS_NAME" property="goodsName" jdbcType="VARCHAR"/>
+		<result column="TYPE_ID" property="typeId" jdbcType="DECIMAL"/>
+		
+		<result column="BRAND_ID" property="brandId" jdbcType="DECIMAL"/>
+		<result column="SHOW_IMG_1" property="showImg1" jdbcType="VARCHAR"/>
+		<result column="SHOW_IMG_2" property="showImg2" jdbcType="VARCHAR"/>
+		<result column="SHOW_IMG_3" property="showImg3" jdbcType="VARCHAR"/>
+		<result column="SHOW_IMG_4" property="showImg4" jdbcType="VARCHAR"/>
+		
+		<result column="INTRODUCE_IMG" property="introduceImg" jdbcType="VARCHAR"/>
+		<result column="PRICE" property="price" jdbcType="DECIMAL"/>
+		<result column="STOCK" property="stock" jdbcType="DECIMAL"/>
+		<result column="CREATOR_ID" property="creatorId" jdbcType="DECIMAL"/>
+		<result column="CREATED_TIME" property="createdTime" jdbcType="TIMESTAMP"/>
+		
+		<result column="LAST_OPERATOR_ID" property="lastOperatorId" jdbcType="DECIMAL"/>
+		<result column="LAST_OPERATED_TIME" property="lastOperatedTime" jdbcType="TIMESTAMP"/>
+		
+	</resultMap>
+	
+</mapper>

@@ -47,9 +47,9 @@
         <jaxrs:providers>
             <bean class="org.codehaus.jackson.jaxrs.JacksonJsonProvider"/>
         </jaxrs:providers>
-       <jaxrs:inInterceptors>
+       <!-- <jaxrs:inInterceptors>
             <ref bean="gatewayInInterceptor"/>
-        </jaxrs:inInterceptors>
+        </jaxrs:inInterceptors> -->
         <!-- <jaxrs:outInterceptors>
             <ref bean="gatewayOutInterceptor"/>
         </jaxrs:outInterceptors>  -->

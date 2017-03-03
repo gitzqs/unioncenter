@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.zqs.core.dao.goods.IGoodsTypeMapper;
 import com.zqs.core.service.goods.IGoodsService;
 import com.zqs.core.utils.json.JacksonUtils;
+import com.zqs.pojo.base.ReturnObject;
+import com.zqs.pojo.base.e.ReturnCode;
 import com.zqs.pojo.goods.GoodsType;
 
 public class DefaultGoodsServiceImpl implements IGoodsService {
@@ -18,6 +20,8 @@ public class DefaultGoodsServiceImpl implements IGoodsService {
 	
 	@Override
 	public String getMenu() {
+		//返回参数
+		ReturnObject returnObject = new ReturnObject();
 		
 		//获取第一级别列表
 		Map<String,Object> map = new HashMap<String,Object>();
@@ -40,7 +44,12 @@ public class DefaultGoodsServiceImpl implements IGoodsService {
 				
 			}
 		}
-		return JacksonUtils.object2json(list_1);
+		
+		//返回参数
+		returnObject.setReturnCode(ReturnCode.SUCCESS);
+		returnObject.setReturnMsg(ReturnCode.SUCCESS_MSG);
+		returnObject.setReturnData(list_1);
+		return JacksonUtils.object2json(returnObject);
 	}
 
 }
