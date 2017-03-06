@@ -7,6 +7,7 @@
 		<result column="NAME" property="name" jdbcType="VARCHAR"/>
 		<result column="LEVEL" property="level" jdbcType="DECIMAL"/>
 		<result column="SORT" property="sort" jdbcType="DECIMAL"/>
+		<result column="IMAGE" property="image" jdbcType="VARCHAR"/>
 		
 		<result column="PARENT_ID" property="parentId" jdbcType="DECIMAL"/>
 		<result column="STATUS" property="status" jdbcType="DECIMAL"/>
@@ -19,7 +20,7 @@
 	</resultMap>
 	
 	<sql id="base_column">
-		TYPE_ID,NAME
+		TYPE_ID,NAME,IMAGE
 	</sql>
 	
 	<!-- 获取菜单 -->

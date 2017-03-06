@@ -43,6 +43,12 @@ public class Goods extends REntity{
 	/** 库存 */
 	private int stock;
 	
+	/** 已售 */
+	private int sold;
+	
+	/** 是否推荐 */
+	private int isRec;
+	
 	/** 创建人 */
 	private Long creatorId;
 	
@@ -181,6 +187,22 @@ public class Goods extends REntity{
 
 	public void setLastOperatedTime(Date lastOperatedTime) {
 		this.lastOperatedTime = lastOperatedTime;
+	}
+
+	public int getSold() {
+		return sold;
+	}
+
+	public void setSold(int sold) {
+		this.sold = sold;
+	}
+
+	public int getIsRec() {
+		return isRec;
+	}
+
+	public void setIsRec(int isRec) {
+		this.isRec = isRec;
 	}
 	
 	

@@ -17,12 +17,49 @@
 		<result column="INTRODUCE_IMG" property="introduceImg" jdbcType="VARCHAR"/>
 		<result column="PRICE" property="price" jdbcType="DECIMAL"/>
 		<result column="STOCK" property="stock" jdbcType="DECIMAL"/>
+		<result column="SOLD" property="sold" jdbcType="DECIMAL"/>
+		<result column="IS_REC" property="isRec" jdbcType="DECIMAL"/>
+		
 		<result column="CREATOR_ID" property="creatorId" jdbcType="DECIMAL"/>
 		<result column="CREATED_TIME" property="createdTime" jdbcType="TIMESTAMP"/>
-		
 		<result column="LAST_OPERATOR_ID" property="lastOperatorId" jdbcType="DECIMAL"/>
 		<result column="LAST_OPERATED_TIME" property="lastOperatedTime" jdbcType="TIMESTAMP"/>
 		
 	</resultMap>
+	
+	<sql id="base_column">
+		GOODS_ID,CODE,GOODS_NAME,TYPE_ID,BRAND_ID,SHOW_IMG_1,SHOW_IMG_2,SHOW_IMG_3,SHOW_IMG_4,
+		INTRODUCE_IMG,PRICE,STOCK
+	</sql>
+	
+	<sql id="sql_where">
+		<where>
+			1=1
+			<if test="goodsId !=null and goodsId !=''">
+				AND GOODS_ID = #{goodsId}
+			</if>
+			<if test="typeId !=null and typeId !=''">
+				AND TYPE_ID = #{typeId}
+			</if>
+			<if test="brandId !=null and brandId !=''">
+				AND BRAND_ID = #{brandId}
+			</if>
+		</where>
+	</sql>
+	
+	<select id="loadAll" parameterType="Map" resultMap="goodsMap">
+		SELECT
+		<include refid="base_column"/>
+		FROM TB_GOODS
+		<include refid="sql_where"/>
+	</select>
+	
+	<!-- 商品评论 -->
+	<select id="loadComment" parameterType="int" resultType="Map">
+		SELECT t1.COMMENT, t2.MOBILE , t1.CREATED_TIME
+		FROM TB_GOODS_COMMENT t1
+		LEFT JOIN TB_USER t2 ON t1.USER_ID = t2.USER_ID
+		WHERE t1.GOODS_ID = #{goodsId}
+	</select>
 	
 </mapper>

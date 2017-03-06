@@ -8,7 +8,17 @@ package com.zqs.pojo.base.e;
 public interface ReturnCode {
 	
 	/** 操作成功 */
-	String SUCCESS = "0000"; 
+	String SUCCESS_CODE = "0000"; 
 	
 	String SUCCESS_MSG = "操作成功";
+	
+	/** 参数不完整 */
+	String PARAMS_MISS_CODE = "1000";
+	
+	String PARAMS_MISS_MSG = "参数不完整";
+	
+	/** 参数为空 */
+	String PARAMS_NULL_CODE = "1001";
+	
+	String PARAMS_NULL_MSG = "参数为空";
 }

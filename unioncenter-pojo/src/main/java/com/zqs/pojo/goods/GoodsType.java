@@ -29,6 +29,9 @@ public class GoodsType extends REntity{
 	/** 父id */
 	private Long parentId;
 	
+	/** 图片介绍 */
+	private String image;
+	
 	/** 状态 */
 	private int status;
 	
@@ -46,6 +49,9 @@ public class GoodsType extends REntity{
 	
 	/** 存放下属类别*/
 	private List<GoodsType> list;
+	
+	/** 存放下属商品 */
+	private List<Goods> goodsList;
 
 	public Long getTypeId() {
 		return typeId;
@@ -133,6 +139,22 @@ public class GoodsType extends REntity{
 
 	public void setList(List<GoodsType> list) {
 		this.list = list;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public List<Goods> getGoodsList() {
+		return goodsList;
+	}
+
+	public void setGoodsList(List<Goods> goodsList) {
+		this.goodsList = goodsList;
 	}
 	
 	

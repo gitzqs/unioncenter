@@ -1,14 +1,17 @@
 package com.zqs.core.service.goods.impl;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.zqs.core.dao.goods.IGoodsMapper;
 import com.zqs.core.dao.goods.IGoodsTypeMapper;
 import com.zqs.core.service.goods.IGoodsService;
 import com.zqs.core.utils.json.JacksonUtils;
+import com.zqs.core.utils.string.StringUtils;
 import com.zqs.pojo.base.ReturnObject;
 import com.zqs.pojo.base.e.ReturnCode;
 import com.zqs.pojo.goods.GoodsType;
@@ -17,6 +20,8 @@ public class DefaultGoodsServiceImpl implements IGoodsService {
 	
 	@Autowired
 	private IGoodsTypeMapper goodsTypeMapper;
+	@Autowired
+	private IGoodsMapper goodsMapper;
 	
 	@Override
 	public String getMenu() {
@@ -46,9 +51,50 @@ public class DefaultGoodsServiceImpl implements IGoodsService {
 		}
 		
 		//返回参数
-		returnObject.setReturnCode(ReturnCode.SUCCESS);
+		returnObject.setReturnCode(ReturnCode.SUCCESS_CODE);
 		returnObject.setReturnMsg(ReturnCode.SUCCESS_MSG);
 		returnObject.setReturnData(list_1);
+		return JacksonUtils.object2json(returnObject);
+	}
+
+	@Override
+	public String getSingleInfo(Map<String, Object> map) {
+		//返回参数
+		ReturnObject returnObject = new ReturnObject();
+		
+		returnObject.setReturnCode(ReturnCode.SUCCESS_CODE);
+		returnObject.setReturnMsg(ReturnCode.SUCCESS_MSG);
+		returnObject.setReturnData(goodsMapper.loadAll(map));
+		
+		return JacksonUtils.object2json(returnObject);
+	}
+
+	@Override
+	public String getGoodsComment(Map<String,Object> map) {
+		//返回参数
+		ReturnObject returnObject = new ReturnObject();
+		String returnCode = ReturnCode.SUCCESS_CODE;
+		String returnMsg = ReturnCode.SUCCESS_MSG;
+		List<Map<String,Object>> results = new ArrayList<Map<String,Object>>();
+		
+		//1、验证参数是否完整
+		if(map !=null && map.get("goodsId") != null){
+			String goodsId = map.get("goodsId").toString();
+			//2、验证参数是否为空
+			if(!StringUtils.isEmpty(goodsId)){
+				results = goodsMapper.loadComment(Integer.parseInt(goodsId));
+			}else{
+				returnCode = ReturnCode.PARAMS_NULL_CODE;
+				returnMsg = ReturnCode.PARAMS_NULL_MSG;
+			}
+		}else{
+			returnCode = ReturnCode.PARAMS_MISS_CODE;
+			returnMsg = ReturnCode.PARAMS_MISS_MSG;
+		}
+		returnObject.setReturnCode(returnCode);
+		returnObject.setReturnMsg(returnMsg);
+		returnObject.setReturnData(results);
+		
 		return JacksonUtils.object2json(returnObject);
 	}
 
