@@ -23,7 +23,7 @@ public class DefultOtherServiceImpl implements IOtherService {
 		//轮播图
 		map.put("turn", recommendMapper.load(Erecmd.TURN));
 		//热门推荐
-		map.put("hot", recommendMapper.load(Erecmd.HOT));
+//		map.put("hot", recommendMapper.load(Erecmd.HOT));
 		return JacksonUtils.object2json(map);
 	}
 
