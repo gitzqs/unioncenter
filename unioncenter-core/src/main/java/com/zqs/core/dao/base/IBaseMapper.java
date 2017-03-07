@@ -55,4 +55,12 @@ public interface IBaseMapper<T extends REntity> {
 	 * @return int
 	 */
 	int save(T entity);
+	
+	/**
+	 * 更新
+	 * 
+	 * @param 
+	 * @return void
+	 */
+	void update(Long id);
 }

@@ -42,4 +42,10 @@
 		<include refid="sql_where"/>
 	</select>
 	
+	<!-- 注册用户 -->
+	<insert id="save" parameterType="user">
+		INSERT INTO TB_USER(USER_NAME,MOBILE,PASSWORD,STATUS,REG_TIME)VALUES(
+			#{userName},#{mobile},#{password},#{status},#{regTime}
+		)
+	</insert>
 </mapper>

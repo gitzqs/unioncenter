@@ -38,6 +38,7 @@ public class DefaultGoodsServiceImpl implements IGoodsService {
 				map.clear();
 				map.put("status", 1);
 				map.put("parentId", list_1.get(i).getTypeId());
+				//下属列表
 				List<GoodsType> list_2 = goodsTypeMapper.loadList(map);
 				if(list_2 != null && list_2.size() >0){
 					for(int j=0; j<list_2.size(); j++){
@@ -46,6 +47,9 @@ public class DefaultGoodsServiceImpl implements IGoodsService {
 					}
 					list_1.get(i).setList(list_2);
 				}
+				
+				//所属商品
+				list_1.get(i).setGoodsList(goodsMapper.loadRecGoods(list_1.get(i).getTypeId()));
 				
 			}
 		}

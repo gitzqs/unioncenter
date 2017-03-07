@@ -62,4 +62,14 @@
 		WHERE t1.GOODS_ID = #{goodsId}
 	</select>
 	
+	<!-- 获取推荐商品 -->
+	<select id="loadRecGoods" parameterType="long" resultMap="goodsMap">
+		SELECT t2.GOODS_NAME,t2.PRICE,t2.SOLD,t1.GOODS_ID
+		FROM TB_GOODS_INDEX t1
+		LEFT JOIN TB_GOODS t2 ON t1.GOODS_ID = t2.GOODS_ID
+		WHERE t1.STATUS = 1 AND t1.TYPE_ID = #{typeId}
+			AND t1.BEGIN_TIME &lt;= NOW()
+			AND t1.END_TIME &gt;= NOW()
+	</select>
+	
 </mapper>

@@ -21,4 +21,9 @@ public interface ReturnCode {
 	String PARAMS_NULL_CODE = "1001";
 	
 	String PARAMS_NULL_MSG = "参数为空";
+	
+	/** 程序错误 */
+	String PROGRAM_ERROR_CODE = "9999";
+	
+	String PROGRAM_ERROR_MSG = "程序发生错误";
 }

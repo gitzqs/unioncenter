@@ -15,4 +15,12 @@ public interface IGoodsMapper extends IBaseMapper<Goods>{
 	 * @return List<Map<String,Object>>
 	 */
 	List<Map<String,Object>> loadComment(int goodsId);
+	
+	/**
+	 * 首页商品展示
+	 * 
+	 * @param 
+	 * @return List<Map<String,Object>>
+	 */
+	List<Goods> loadRecGoods(Long typeId);
 }

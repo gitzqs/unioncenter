@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zqs.core.dao.other.IValidateCodeMapper">
+	<resultMap id="validateCodeMap" type="validateCode" >
+		
+		<id column="ID" property="id" jdbcType="DECIMAL"/>
+		<result column="MOBILE" property="mobile" jdbcType="VARCHAR"/>
+		<result column="TYPE" property="type" jdbcType="DECIMAL"/>
+		<result column="CODE" property="code" jdbcType="VARCHAR"/>
+		<result column="BEGIN_TIME" property="beginTime" jdbcType="TIMESTAMP"/>
+		
+		<result column="END_TIME" property="endTime" jdbcType="TIMESTAMP"/>
+		<result column="STATUS" property="status" jdbcType="DECIMAL"/>
+	</resultMap>
+	
+	<!-- 查询验证码 -->
+	<select id="loadAll" parameterType="Map" resultMap="validateCodeMap">
+		SELECT ID,CODE,END_TIME
+		FROM TB_VALIDATE_CODE
+		WHERE MOBILE = #{mobile} 
+			AND TYPE = #{type} AND STATUS = 1
+	</select>
+	
+	<!-- 更新状态 -->
+	<update id="update" parameterType="Long">
+		UPDATE TB_VALIDATE_CODE
+		SET STATUS = 0
+		WHERE ID = #{id}
+	</update>
+</mapper>

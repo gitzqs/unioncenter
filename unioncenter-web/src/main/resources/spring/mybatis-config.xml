@@ -37,6 +37,7 @@
 		<!-- other -->
 		<typeAlias type="com.zqs.pojo.other.Recommend" alias = "recommend"/>
 		<typeAlias type="com.zqs.pojo.other.Appkey" alias = "appkey"/>
+		<typeAlias type="com.zqs.pojo.other.ValidateCode" alias = "validateCode"/>
 	</typeAliases>
 	
 	
