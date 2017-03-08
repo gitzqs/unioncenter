@@ -20,13 +20,18 @@ public interface IUserService {
 	@Path("/loadAll")
 	String loadAll(Map<String,Object> map);
 	
-	/** 
-	 * 注册
+	
+	/**
+	 * 用户注册
 	 * 
 	 * @param 
 	 * @return String
 	 */
 	@POST
-	@Path("/save")
-	String save(User user);
+	@Path("/register")
+	String register(User user);
+	
+	@POST
+	@Path("/login")
+	String login(Map<String,Object> map);
 }

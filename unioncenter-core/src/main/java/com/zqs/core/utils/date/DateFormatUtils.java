@@ -4,6 +4,7 @@ package com.zqs.core.utils.date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -59,6 +60,37 @@ public class DateFormatUtils {
             logger.error("can't parse source: [{}] to date! catched Exception:\n\t{}", new Object[]{source, e.getLocalizedMessage()});
         }
         return null;
+    }
+    
+    /**
+     * 两个时间相差分钟数
+     * 
+     * @param date1 较小的时间
+     * @param date2 较大的时间
+     * @return String
+     */
+    public static long timeDiff(Date date1,Date date2){
+    	
+    	return (date2.getTime() - date1.getTime())/(1000 * 60);
+    }
+    
+    /**
+     * 某时间上加上index分钟
+     * 
+     * @param date 处理前时间
+     * @param index 分钟数
+     * @return Date
+     */
+    public static Date timeAdd(Date date, int index){
+    	Calendar cal = Calendar.getInstance();
+    	cal.add(Calendar.MINUTE, index);
+    	
+    	return cal.getTime();
+    }
+    
+    public static void main(String args[]){
+    	
+    	System.out.println(timeAdd(new Date(),30));
     }
     
 }

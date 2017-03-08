@@ -1,8 +1,10 @@
 package com.zqs.pojo.user;
 
-import java.sql.Date;
+
+import java.util.Date;
 
 import com.zqs.pojo.base.REntity;
+import com.zqs.pojo.base.e.EStatus;
 /**
  * 用户基本信息
  * 
@@ -23,6 +25,21 @@ public class User extends REntity{
 	
 	/** 密码 */
 	private String password;
+	
+	/** 再次密码 */
+	private String passwordAgain;
+	
+	/** 短信验证码 */
+	private String messageCode;
+	
+	/** 图片验证码 */
+	private String imgCode;
+	
+	/** 剩余错误次数 */
+	private int errorLeft;
+	
+	/** 冻结到期时间 */
+	private Date freezeTime;
 	
 	/** appid */
 	private String appid;
@@ -120,6 +137,46 @@ public class User extends REntity{
 
 	public void setStatus(int status) {
 		this.status = status;
+	}
+
+	public String getPasswordAgain() {
+		return passwordAgain;
+	}
+
+	public void setPasswordAgain(String passwordAgain) {
+		this.passwordAgain = passwordAgain;
+	}
+
+	public String getMessageCode() {
+		return messageCode;
+	}
+
+	public void setMessageCode(String messageCode) {
+		this.messageCode = messageCode;
+	}
+
+	public String getImgCode() {
+		return imgCode;
+	}
+
+	public void setImgCode(String imgCode) {
+		this.imgCode = imgCode;
+	}
+
+	public int getErrorLeft() {
+		return errorLeft;
+	}
+
+	public void setErrorLeft(int errorLeft) {
+		this.errorLeft = errorLeft;
+	}
+
+	public Date getFreezeTime() {
+		return freezeTime;
+	}
+
+	public void setFreezeTime(Date freezeTime) {
+		this.freezeTime = freezeTime;
 	}
 	
 	

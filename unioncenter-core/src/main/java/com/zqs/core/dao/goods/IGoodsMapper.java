@@ -23,4 +23,12 @@ public interface IGoodsMapper extends IBaseMapper<Goods>{
 	 * @return List<Map<String,Object>>
 	 */
 	List<Goods> loadRecGoods(Long typeId);
+	
+	/**
+	 * 获取购物车
+	 * 
+	 * @param 
+	 * @return List<Map<String,Object>>
+	 */
+	List<Map<String,Object>> loadGoodsCart(long userId);
 }
