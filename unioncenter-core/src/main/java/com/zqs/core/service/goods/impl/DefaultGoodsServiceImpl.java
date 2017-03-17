@@ -102,4 +102,34 @@ public class DefaultGoodsServiceImpl implements IGoodsService {
 		return JacksonUtils.object2json(returnObject);
 	}
 
+	@Override
+	public String getGoodsCart(Map<String, Object> map) {
+		//初始化返回参数
+		ReturnObject returnObject = new ReturnObject();
+		String returnCode = ReturnCode.SUCCESS_CODE;
+		String returnMsg = ReturnCode.SUCCESS_MSG;
+		List<Map<String,Object>> results = new ArrayList<Map<String,Object>>();
+		
+		//1、验证参数是否完整
+		if(map !=null && map.get("userId") != null){
+			String userId = map.get("userId").toString();
+			//2、验证参数是否为空
+			if(!StringUtils.isEmpty(userId)){
+				results = goodsMapper.loadGoodsCart(Long.parseLong(userId));
+			}else{
+				returnCode = ReturnCode.PARAMS_NULL_CODE;
+				returnMsg = ReturnCode.PARAMS_NULL_MSG;
+			}
+		}else{
+			returnCode = ReturnCode.PARAMS_MISS_CODE;
+			returnMsg = ReturnCode.PARAMS_MISS_MSG;
+		}
+		
+		returnObject.setReturnCode(returnCode);
+		returnObject.setReturnMsg(returnMsg);
+		returnObject.setReturnData(results);
+		
+		return JacksonUtils.object2json(returnObject);
+	}
+
 }

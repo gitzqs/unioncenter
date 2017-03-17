@@ -37,4 +37,14 @@ public interface IGoodsService {
 	@POST
 	@Path("/comment")
 	String getGoodsComment(Map<String,Object> map);
+	
+	/**
+	 * 获取购物车信息
+	 * 
+	 * @param 
+	 * @return String
+	 */
+	@POST
+	@Path("/cart")
+	String getGoodsCart(Map<String,Object> map);
 }

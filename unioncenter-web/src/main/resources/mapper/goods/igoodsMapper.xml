@@ -75,7 +75,7 @@
 	<!-- 购物车 -->
 	<select id="loadGoodsCart" parameterType="long" resultType="Map">
 		SELECT t2.GOODS_NAME name, t2.PRICE price, t1.GOODS_NUM num , 
-			(t2.PRICE price * t1.GOODS_NUM) totalPrice
+			(t2.PRICE * t1.GOODS_NUM) totalPrice
 		FROM TB_GOODS_CART t1
 		LEFT JOIN TB_GOODS t2 ON t1.GOODS_ID = t2.GOODS_ID
 		WHERE t1.USER_ID = #{userId}
